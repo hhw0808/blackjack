@@ -52,7 +52,13 @@ int getIntegerInput(void) {
 //card processing functions ---------------
 
 //calculate the actual card number in the blackjack game
-int getCardNum(int cardnum) {
+int cardshape(int cardnum) {
+	char arr[][4] = {"SPD", "DIA", "CLV", "HRT"};
+	int i, j, random;
+	srand(time(NULL));
+	random = rand() % 4;
+	
+	printf("%s", arr[random]);
 
 }
 
@@ -67,10 +73,13 @@ void printCard(int cardnum) {
 //mix the card sets and put in the array
 int mixCardTray(void) {
 
+
+
 }
 
 //get one card from the tray
 int pullCard(void) {
+
 }
 
 
