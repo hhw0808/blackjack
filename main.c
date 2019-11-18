@@ -52,21 +52,19 @@ int getIntegerInput(void) {
 //card processing functions ---------------
 
 //calculate the actual card number in the blackjack game
-int cardshape(int cardnum) {
-	char arr[][4] = {"SPD", "DIA", "CLV", "HRT"};
-	int i, j, random;
-	srand(time(NULL));
-	random = rand() % 4;
-	
-	printf("%s", arr[random]);
-
+int getCardNum(int cardnum) {
 }
 
+void swap(int deck[], int a, int b) { 
+	int t=deck[a]; deck[a]=deck[b]; deck[b]=t; }
+	
 //print the card information (e.g. DiaA)
-void printCard(int cardnum) {
-	
+void printCard(int c)
+{
+	char *s[]={"SPD", "DIA", "HRT", "CLV" };	
+	char *p[]={ "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+	printf("%s %s", s[c/13], p[c%13]);
 }
-
 
 //card array controllers -------------------------------
 
@@ -79,8 +77,19 @@ int mixCardTray(void) {
 
 //get one card from the tray
 int pullCard(void) {
-
+	int deck[52], a, b, i, j;
+	srand(time(0));
+	for(i=0;i<52;i++) 
+		deck[i]=i;
+	for(i=0;i<10000;i++) {
+		a=rand()%52; b=rand()%52; swap(deck, a, b); }
+	for(i=0;i<1;i++)
+		printCard(deck[i]);
+		
+	return 0;
 }
+
+
 
 
 //playing game functions -----------------------------
@@ -135,8 +144,15 @@ void printCardInitialStatus(void) {
 }
 
 int getAction(void) {
-	
-}
+	int y;	
+	printf(":::Action? 0-go, others-stay");
+	scanf("%d", y);
+	if (y=0){
+		pullcard();}
+	else;
+		
+}	
+
 
 
 void printUserCardStatus(int user, int cardcnt) {
@@ -195,7 +211,7 @@ int main(int argc, char *argv[]) {
 		printf("\n------------------ GAME start --------------------------\n");
 		
 		//each player's turn
-		for () //each player
+		for (i=0; i=n_user; i++) //each player
 		{
 			while () //do until the player dies or player says stop
 			{
