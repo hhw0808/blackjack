@@ -92,14 +92,7 @@ int getCardNum(int cardnum) {
 
 	else if(cardnum%13==0)
 		return 10;
-
-			
-
 }
-
-
-void swap(int deck[], int a, int b) { 
-	int t=deck[a]; deck[a]=deck[b]; deck[b]=t; }
 	
 //print the card information (e.g. DiaA)
 void printCard(int cardnum)
@@ -118,15 +111,14 @@ int mixCardTray(void) {
 	srand((unsigned int)time(NULL));    
  	for(i=0;i< N_CARDSET*N_CARD;i++){
 
-        CardTray[i] = i;}
+        CardTray[i] == i;}
         
     printf(" --> card is mixed and put into the tray");
 }
 
 //get one card from the tray
 int pullCard(void) {
-	
-	return 0;
+	return CardTray[cardIndex++]; //next card
 }
 
 
@@ -186,24 +178,39 @@ void offerCards(void) {
 //print initial card status
 void printCardInitialStatus(void) {
 	int i;
-	printf("-----------CARD OFFERING---------------\n");
+	printf(" ----------- CARD OFFERING ---------------\n");
 	
-	for (i=0; i<n_user; i++){	
-		if (i=0){
-			printf(" ->server	: X %s", cardhold[0][i]);}
-		else {
-			printf(" ->%s : %s ", cardhold[i][0], cardhold[0][i]);}
-		}
-	 
+	printf("--- server: X ");
+	printCard(cardhold[n_user][1]);
+	printf("\n");
+	printf(" -> you: ");
+
+	printCard(cardhold[0][0]);
+	printf(" ");
+	printCard(cardhold[0][1]);
+	printf("\n");
+
+	for(i=1;i<n_user;i++){	
+
+		printf(" -> player %d: ",i);
+		printCard(cardhold[i][0]);
+		printf(" ");
+		printCard(cardhold[i][1]); 
+		printf("\n");}
+
 }
+
+	 
+
 
 int getAction(void) {
 	int y;	
 	printf(":::Action? 0-go, others-stay");
 	scanf("%d", y);
-	if (y=0){
-		pullcard();}
-	else;
+	if (y==0){
+		return 0;}
+	else{
+		return 1;};
 		
 }	
 
@@ -224,8 +231,13 @@ void printUserCardStatus(int user, int cardcnt) {
 // calculate the card sum and see if : 1. under 21, 2. over 21, 3. blackjack
 int calcStepResult() {
 	
+	int i;
+	cardSum[user]=0;
+	
 	if
+	
 	else if
+	
 	else if
 	
 }
