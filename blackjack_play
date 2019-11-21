@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "blackjack_play"
+#include "blackjack_after"
+
+#define N_CARDSET			1
+#define N_CARD				52
+#define N_DOLLAR			50
+
+
+#define N_MAX_CARDNUM		13
+#define N_MAX_USER			5
+#define N_MAX_CARDHOLD		10
+#define N_MAX_GO			17
+#define N_MAX_BET			5
+
+#define N_MIN_ENDCARD		30	
+
+//card tray object
+extern int CardTray[N_CARDSET*N_CARD];
+extern int cardIndex = 0;							
+
+
+//player info
+extern int dollar[N_MAX_USER];						//dollars that each player has
+extern int n_user;									//number of users
+
+
+//play yard information
+extern int cardhold[N_MAX_USER+1][N_MAX_CARDHOLD];	//cards that currently the players hold
+extern int cardholdnum[N_MAX_CARDHOLD]; //card number that players hold
+extern int cardSum[N_MAX_USER];					//sum of the cards
+extern int bet[N_MAX_USER];						//current betting 
+extern int gameEnd = 0; 							//game end flag
+extern int roundnum=1;
