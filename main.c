@@ -308,31 +308,28 @@ int checkResult() {
 
 				}
 
-			}
+	}
+
+	else if(cardSum[0]>21)//overflow
+	{
+		printf("lose due to overflow!\n");
+		printf("(sum:%d) --> $%d\n",cardSum[0],,dollar[0]);
+	}
+
+	else if(cardSum[n_user]>21)
+	{	if(cardSum[0]<=21)
+		{	printf("win!\n");
+			dollar[0]=dollar[0]+bet[0];			
+			printf("(sum:%d) --> %d\n",cardSum[0],dollar[0]);
+		}
 
 		else if(cardSum[0]>21)
 		{
-			printf("lose due to overflow!\n");
-			printf("(sum:%d)\n",cardSum[0]);
+			printf("lose due to overflow!\n");	
+			printf("(sum:%d) --> $%d\n",cardSum[0],,dollar[0]);	
 		}
 
-		else if(cardSum[n_user]>21)
-		{
-			if(cardSum[0]<=21)
-			{
-				printf("win!\n");
-				dollar[0]=dollar[0]+bet[0];
-				printf("(sum:%d) --> %d\n",cardSum[0],dollar[0]);
-			}
-
-			else if(cardSum[0]>21)
-			{
-				printf("lose due to overflow!\n");	
-				printf("(sum:%d)\n",cardSum[0]);
-				printf("(sum:%d) --> $%d\n",cardSum[0],,dollar[0]);	
-			}
-
-		}
+	}
 
 	
 	//players result
@@ -374,7 +371,7 @@ int checkResult() {
 
 		}
 
-		else if(cardSum[n_user]>21)
+		else if(cardSum[n_user]>21)//overflow
 
 		{
 
@@ -419,6 +416,7 @@ int checkWinner() {
 
 
 
+
 int main(int argc, char *argv[]) {
 	int roundIndex = 0;
 	int max_user;
@@ -453,7 +451,7 @@ int main(int argc, char *argv[]) {
 		//your turn
 		printf(">>> my turn! -------------\n");
 		printUserCardStatus(int user, int cardcnt);
-		getAction(void)
+		getAction(void);
 		
 		
 		//each player's turn
